@@ -50,6 +50,7 @@ class World:
    def __init__(self,width,height):
       self.width = width
       self.height = height
+      self.score = 0
 
       self.ship = Ship(self, 100, 100)
       self.gold = Gold(self, 400, 400)
@@ -59,6 +60,7 @@ class World:
 
       if self.ship.hit(self.gold, 15):
             self.gold.random_location()
+            self.score += 1
 
    def on_key_press(self, key, key_modifiers):
       if key == arcade.key.SPACE:
